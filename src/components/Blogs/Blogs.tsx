@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import * as Contentstack from 'contentstack';
 import {CONTENT_UID, CS_API_KEY, CS_DELIVERY_TOKEN, ENVIRONMENT} from '../../constants'
 import { Blog } from '../Blog/Blog';
+import styles from './Blogs.module.css';
 
-const Stack = Contentstack.Stack(CS_API_KEY, CS_DELIVERY_TOKEN, ENVIRONMENT);
+
+export const Stack = Contentstack.Stack(CS_API_KEY, CS_DELIVERY_TOKEN, ENVIRONMENT);
 
 
 export interface BlogInterface{
@@ -21,6 +23,7 @@ export interface BlogInterface{
         title: string
     }],
     blog_content: string,
+    created_at: string
 
 }
 
@@ -39,6 +42,7 @@ export const initialStateObj: BlogInterface = {
         title: ''
     }],
     blog_content: '',
+    created_at: ''
 } 
 
 export const Blogs: React.FC = () =>{
@@ -61,10 +65,10 @@ export const Blogs: React.FC = () =>{
     }, [])
 
     return(
-        <>
+        <div className={styles.blogs}>
           {blogs.map((blog: BlogInterface) => {
               return <Blog {...blog} key={blog.uid}/>
           })}  
-        </>
+        </div>
     )
 }
