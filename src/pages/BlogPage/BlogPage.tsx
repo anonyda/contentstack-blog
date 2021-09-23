@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router";
+import Aside from "../../components/Aside/Aside";
 import { BlogInterface, initialStateObj, Stack } from "../../components/Blogs/Blogs"
 import { SingleBlog } from "../../components/SingleBlog/SingleBlog";
 import { CONTENT_UID } from "../../constants";
@@ -8,7 +9,7 @@ import styles from './Blog.module.css';
 
 interface ParamTypes {
     blogId: string
-  }
+}
   
 
 
@@ -34,6 +35,7 @@ export const BlogPage: React.FC = () => {
     return(
         <div className={styles.mainContainer}>
             <SingleBlog {...blog}/>
+            <Aside related_links={blog.related_links} />
         </div>
     )
 }
