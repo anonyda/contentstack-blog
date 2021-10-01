@@ -25,7 +25,6 @@ export const BlogPage: React.FC = () => {
             .fetch()
             .then((entry) => {
                 setBlog(entry)
-                console.log(typeof entry)
             })
             .catch((err) => {
                 console.log(err);

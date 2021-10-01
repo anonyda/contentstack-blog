@@ -4,7 +4,6 @@ import styles from './SingleBlog.module.css';
 
 
 export const SingleBlog:React.FC<BlogInterface> = (blog: BlogInterface) => {
-    console.log('inside single' ,blog);
     return(
         <div className={styles.singleBlog}>
             <img 

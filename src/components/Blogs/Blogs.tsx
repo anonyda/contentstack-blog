@@ -58,7 +58,6 @@ export const Blogs: React.FC = () =>{
             .find()
             .then((result) => {
                 setBlogs(result[0]);
-                console.log(result[0]);
             }, (error) => {
                 console.log(error);
             })
